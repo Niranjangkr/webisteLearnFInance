@@ -1,0 +1,487 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <link rel="stylesheet" href="./css/style.css">
+  <style>
+
+    .logout {
+      background-color: #cccccc;
+      border: solid black 2px;
+      border-radius: 5px;
+      padding: 8px;
+      position: absolute;
+      right: 10px;
+      transition: background-color 0.3s;
+      /* Added transition property for smooth hover effect */
+    }
+
+    .logout:hover {
+      background-color: #ffffff;
+      /* Background color changes to white on hover */
+    }
+
+    .logout a {
+      padding: 5px;
+      text-decoration: none;
+      color: #000000;
+      font-weight: bold;
+    }
+
+    .Vimg {
+      background-image: url("./photos/learn.jpg");
+      width: 100%;
+      height: 100vh;
+      background-size: cover;
+      background-position: center;
+      position: relative;
+      overflow: auto;
+    }
+
+
+    /* videos style */
+    .vid-sec ul {
+      list-style: none;
+      padding: 0;
+      padding-bottom: 10%;
+    }
+
+    .vid-sec li {
+      background-color: #f1f1f1;
+      border: 1px solid #ccc;
+      padding: 10px;
+      margin-bottom: 10px;
+      position: relative;
+      width: 700px;
+    }
+
+    .vid-sec li::after {
+      content: '\25BC';
+      position: absolute;
+      top: 50%;
+      right: 10px;
+      transform: translateY(-50%);
+      font-size: 14px;
+    }
+
+    .vid-sec li:last-child::after {
+      content: '\25B6';
+    }
+
+    .vid-sec .dropdown-content {
+      display: none;
+      background-color: #fff;
+      border: 1px solid #ccc;
+      padding: 10px;
+
+    }
+
+    .vid-sec li.open>.dropdown-content {
+      display: block;
+    }
+
+    .vid-sec .dropdown-content iframe {
+      display: block;
+      width: 550px;
+      margin: 0 auto;
+      /* Center the iframe horizontally */
+    }
+
+
+    /* page loading */
+
+    .loading-overlay {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(255, 255, 255, 0.8);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      z-index: 9999;
+    }
+
+    .loading-message {
+      font-size: 24px;
+      font-weight: bold;
+    }
+
+    /* media qurey */
+    @media only screen and (max-width: 600px) {
+      body {
+        width: 100vw;
+        height: 100vh;
+
+        .center {
+          position: relative;
+          top: 1234px;
+        }
+
+        #lgoSc {
+          width: 240px;
+          padding: 4px;
+          margin-left: 24px;
+        }
+
+        #hamburger-menu {
+          width: 38px;
+          height: 30px;
+          display: block;
+          border: none;
+          padding: 0px;
+          margin: 20px;
+
+          position: absolute;
+          top: 10px;
+          right: 10px;
+          background: linear-gradient(to bottom,
+              #ffffff, #ffffff 20%,
+              #2d0363, #2d0363 40%,
+              #ffffff 40%, #ffffff 60%,
+              #2d0363 60%, #2d0363 80%,
+              #ffffff 80%, #ffffff 100%);
+
+        }
+
+        #hamburger-menu-replace {
+          display: none;
+        }
+
+        #hamburger-menu-replace {
+          display: flex;
+          flex-direction: column;
+          display: none;
+          position: absolute;
+          top: 50px;
+          right: 30px;
+        }
+
+        #hamburger-menu-replace>li {
+          border: 1px solid black;
+        }
+
+        #hamburger-menu-replace>li {
+          background-color: rgb(83, 22, 250);
+          padding: 5px;
+        }
+
+        #hamburger-menu-replace>li:hover {
+          background: #fff;
+          color: black;
+        }
+
+        #logoutbtn {
+          display: flex;
+          flex-direction: column;
+          display: none;
+          position: absolute;
+          top: 282px;
+          right: 30px;
+          width: 118px;
+        }
+
+        .Vcenter {
+          width: 100%;
+          margin: auto;
+        }
+
+        .vid-sec li {
+          /* background-color: #f1f1f1;
+          border: 1px solid #ccc;
+          padding: 10px;
+          margin-bottom: 10px;
+          position: relative; */
+          width: 400px;
+
+        }
+
+        .vid-sec li {
+          margin: auto;
+        }
+
+        .vid-sec .dropdown-content iframe {
+          width: 360px;
+          /* Center the iframe horizontally */
+        }
+
+      }
+
+  </style>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', function () {
+
+      //loading overlay
+
+      // Show loading overlay
+      const loadingOverlay = document.querySelector('.loading-overlay');
+      loadingOverlay.style.display = 'flex';
+
+      // Prevent user interaction
+      document.body.style.pointerEvents = 'none';
+
+      // Hide loading overlay and enable user interaction after a certain delay (e.g., 3 seconds)
+      setTimeout(function () {
+        loadingOverlay.style.display = 'none';
+        document.body.style.pointerEvents = 'auto';
+      }, 3000);
+
+
+      //rest code
+      const dropdowns = document.querySelectorAll('.dropdown-content');
+
+      dropdowns.forEach(function (dropdown) {
+        dropdown.parentNode.addEventListener('click', function () {
+          dropdown.style.display = dropdown.style.display === 'none' ? 'block' : 'none';
+        });
+      });
+    });
+
+    // Listen for the unload event
+    // Listen for the beforeunload event
+    window.addEventListener("beforeunload", function () {
+      // Send a request to clear the session cookie using an image beacon
+      new Image().src = "/clearSession"; // Change the URL if needed
+    });
+
+    displayMenue = () => {
+      const HamburgerMenue = document.getElementById("hamburger-menu-replace")
+      const logout = document.getElementById("logoutbtn")
+      HamburgerMenue.style.display = HamburgerMenue.style.display === "none" ? "block" : "none"
+      logout.style.display = logout.style.display === "none" ? "block" : "none"
+
+      // Click on the screen and menu display goes to none
+      document.addEventListener("click", (event) => {
+        const targetElement = event.target;
+        const hamburgerMenu = document.getElementById("hamburger-menu");
+        const hamburgerMenu_rep = document.getElementById("hamburger-menu-replace");
+
+        if (hamburgerMenu_rep.style.display === "block") {
+          // Check if the clicked element is the menu or its descendant
+          if (targetElement !== hamburgerMenu && targetElement !== hamburgerMenu_rep) {
+            hamburgerMenu_rep.style.display = "none";
+            logout.style.display = "none";
+          }
+        }
+
+      });
+    }
+
+  </script>
+</head>
+
+<body>
+
+  <!-- loading overlay -->
+  <div class="loading-overlay">
+    <div class="loading-message">Loading...</div>
+  </div>
+  <nav>
+    <div class="menu">
+      <div class="logo">
+        <a href="#"><img src="./photos/3.png" id="lgoSc" alt="Logo"></a>
+      </div>
+      <ul id="hamburger-menu-replace">
+        <li><a href="/">Home</a></li>
+
+        <li id="video-list"><a href="/videos">Videos</a></li>
+
+        <li><a href="/syllabus">Syllabus</a></li>
+        <li><a href="/gallery">Gallery</a></li>
+        <li><a href="/about">About</a></li>
+        <li><a href="/contact">Contact</a></li>
+      </ul>
+      <button id="logoutbtn" class="logout"><a href="/sessionLogout">Log out </a></button>
+    </div>
+    <div id="hamburger-menu" onclick="displayMenue()"></div>
+
+  </nav>
+  <div class="Vimg">
+    <div class="Vcenter">
+      <main>
+        <section class="vid-sec">
+          <h2> Start Your Journey</h2>
+
+          <div id="note">
+            <p>
+              If videos are not properly visible and are not playing then reload the page and login again you'll be able to watch. And Make sure you have good Internet connection. 
+            </p>
+          </div>
+
+          <ul>
+            <li>
+              Topic 1: Introduction To Course
+              <div class="dropdown-content">
+                <div style="position: relative; padding-top: 56.25%;">
+                  <iframe src="https://iframe.mediadelivery.net/embed/125671/a9c38d26-1352-43b3-b971-10c22d8b718b?autoplay=false" loading="lazy" style="border: none; position: absolute; top: 0; height: 100%; width: 100%;" allow="accelerometer; gyroscope; autoplay; encrypted-media; picture-in-picture;" allowfullscreen="true"></iframe>
+                </div>
+              </div>
+            </li>
+            <li>
+              Topic 2: Instructions
+              <div class="dropdown-content">
+                <div style="position: relative; padding-top: 56.25%;">
+                  <iframe src="https://iframe.mediadelivery.net/embed/125671/89edec81-78f3-4836-94ff-3919997d4319?autoplay=false" loading="lazy" style="border: none; position: absolute; top: 0; height: 100%; width: 100%;" allow="accelerometer; gyroscope; autoplay; encrypted-media; picture-in-picture;" allowfullscreen="true"></iframe>
+                </div>
+            </li>
+            <li>
+              Topic 3: Introduction To Indian Stock Market
+              <div class="dropdown-content">
+                <div style="position: relative; padding-top: 56.25%;">
+                  <iframe src="https://iframe.mediadelivery.net/embed/125671/3a548dd8-4657-4f08-8c8a-5cf77a6029da?autoplay=false" loading="lazy" style="border: none; position: absolute; top: 0; height: 100%; width: 100%;" allow="accelerometer; gyroscope; autoplay; encrypted-media; picture-in-picture;" allowfullscreen="true"></iframe>
+                </div>
+              </div>
+            </li>
+            <li>
+              Topic 4 : Financial Live Market
+              <div class="dropdown-content">
+                <div style="position: relative; padding-top: 56.25%;">
+                  <iframe src="https://iframe.mediadelivery.net/embed/125671/f1a68bea-627a-4f1e-a6da-45299ac5057f?autoplay=false" loading="lazy" style="border: none; position: absolute; top: 0; height: 100%; width: 100%;" allow="accelerometer; gyroscope; autoplay; encrypted-media; picture-in-picture;" allowfullscreen="true"></iframe>
+                </div>
+              </div>
+            </li>
+            <li>
+              Topic 5: Important Terms and Concepts in Investing
+              <div class="dropdown-content">
+                <div style="position: relative; padding-top: 56.25%;">
+                  <iframe src="https://iframe.mediadelivery.net/embed/125671/eabfcbb5-5f08-450a-abf2-3f159bd14768?autoplay=false" loading="lazy" style="border: none; position: absolute; top: 0; height: 100%; width: 100%;" allow="accelerometer; gyroscope; autoplay; encrypted-media; picture-in-picture;" allowfullscreen="true"></iframe>
+                </div>
+              </div>
+            </li>
+            <li>
+              Topic 6: Portfolio Building
+              <div class="dropdown-content">
+                <div style="position: relative; padding-top: 56.25%;">
+                  <iframe src="https://iframe.mediadelivery.net/embed/125671/dd64af11-9466-41df-a2f1-7e3b6530aec7?autoplay=false" loading="lazy" style="border: none; position: absolute; top: 0; height: 100%; width: 100%;" allow="accelerometer; gyroscope; autoplay; encrypted-media; picture-in-picture;" allowfullscreen="true"></iframe>
+                </div>
+              </div>
+            </li>
+            <li>
+              Topic 7: Quantative Analysis Part 1
+              <div class="dropdown-content">
+                <div style="position: relative; padding-top: 56.25%;">
+                  <iframe src="https://iframe.mediadelivery.net/embed/125671/44a6bc40-14e1-4da1-9668-3ef374a1868a?autoplay=false" loading="lazy" style="border: none; position: absolute; top: 0; height: 100%; width: 100%;" allow="accelerometer; gyroscope; autoplay; encrypted-media; picture-in-picture;" allowfullscreen="true"></iframe>
+                </div>
+              </div>
+            </li>
+            <li>
+              Topic 8: Quantative Analysis Part 2
+              <div class="dropdown-content">
+                <div style="position: relative; padding-top: 56.25%;">
+                  <iframe src="https://iframe.mediadelivery.net/embed/125671/4bc841c4-35b4-4307-ba56-d8c3fba09233?autoplay=false" loading="lazy" style="border: none; position: absolute; top: 0; height: 100%; width: 100%;" allow="accelerometer; gyroscope; autoplay; encrypted-media; picture-in-picture;" allowfullscreen="true"></iframe>
+                </div>
+              </div>
+            </li>
+            <li>
+              Topic 9: Quantative Analysis Part 3
+              <div class="dropdown-content">
+                <div style="position: relative; padding-top: 56.25%;">
+                  <iframe src="https://iframe.mediadelivery.net/embed/125671/0619827c-6c0b-458c-9367-d41d361d7338?autoplay=false" loading="lazy" style="border: none; position: absolute; top: 0; height: 100%; width: 100%;" allow="accelerometer; gyroscope; autoplay; encrypted-media; picture-in-picture;" allowfullscreen="true"></iframe>
+                </div>
+              </div>
+            </li>
+            <li>
+              Topic 10: Value Investing
+              <div class="dropdown-content">
+                <div style="position: relative; padding-top: 56.25%;">
+                  <iframe src="https://iframe.mediadelivery.net/embed/125671/801138be-99f6-4cab-b80b-065b591f447f?autoplay=false" loading="lazy" style="border: none; position: absolute; top: 0; height: 100%; width: 100%;" allow="accelerometer; gyroscope; autoplay; encrypted-media; picture-in-picture;" allowfullscreen="true"></iframe>
+                </div>
+              </div>
+            </li>
+            <li>
+              Topic 11: Share holding pattern Analysis
+              <div class="dropdown-content">
+                <div style="position: relative; padding-top: 56.25%;">
+                  <iframe src="https://iframe.mediadelivery.net/embed/125671/f211d02a-5013-4b80-b9a0-11f525ec692d?autoplay=false" loading="lazy" style="border: none; position: absolute; top: 0; height: 100%; width: 100%;" allow="accelerometer; gyroscope; autoplay; encrypted-media; picture-in-picture;" allowfullscreen="true"></iframe>
+                </div>
+              </div>
+            </li>
+            <li>
+              Topic 12: Qualitative Analysis
+              <div class="dropdown-content">
+                <div style="position: relative; padding-top: 56.25%;">
+                  <iframe src="https://iframe.mediadelivery.net/embed/125671/882a3a7c-dd50-4d14-a5d6-77f24d25369f?autoplay=false" loading="lazy" style="border: none; position: absolute; top: 0; height: 100%; width: 100%;" allow="accelerometer; gyroscope; autoplay; encrypted-media; picture-in-picture;" allowfullscreen="true"></iframe>
+                </div>
+              </div>
+            </li>
+            <li>
+              Topic 13: Portfolio sizing and rebalancing
+              <div class="dropdown-content">
+                <div style="position: relative; padding-top: 56.25%;">
+                  <iframe src="https://iframe.mediadelivery.net/embed/125671/1546aab6-9b24-4c6a-8790-286548d8652e?autoplay=false" loading="lazy" style="border: none; position: absolute; top: 0; height: 100%; width: 100%;" allow="accelerometer; gyroscope; autoplay; encrypted-media; picture-in-picture;" allowfullscreen="true"></iframe>
+                </div>
+              </div>
+            </li>
+            <li>
+              Topic 14: Market Management Instructions
+              <div class="dropdown-content">
+                <div style="position: relative; padding-top: 56.25%;">
+                  <iframe src="https://iframe.mediadelivery.net/embed/125671/d6e264d0-026c-4c5c-a78b-a466d6460bb7?autoplay=false" loading="lazy" style="border: none; position: absolute; top: 0; height: 100%; width: 100%;" allow="accelerometer; gyroscope; autoplay; encrypted-media; picture-in-picture;" allowfullscreen="true"></iframe>
+                </div>
+              </div>
+            </li>
+            <li>
+              Topic 15: SIP
+              <div class="dropdown-content">
+                <div style="position: relative; padding-top: 56.25%;">
+                  <iframe src="https://iframe.mediadelivery.net/embed/125671/b6fc7a86-0b9b-4158-8d58-b886ee7c661e?autoplay=false" loading="lazy" style="border: none; position: absolute; top: 0; height: 100%; width: 100%;" allow="accelerometer; gyroscope; autoplay; encrypted-media; picture-in-picture;" allowfullscreen="true"></iframe>
+                </div>
+              </div>
+            </li>
+            <li>
+              Topic 16: Positional Trading
+              <div class="dropdown-content">
+                <div style="position: relative; padding-top: 56.25%;">
+                  <iframe src="https://iframe.mediadelivery.net/embed/125671/ca11e6de-b2f6-4102-bfc1-07541fb2b585?autoplay=false" loading="lazy" style="border: none; position: absolute; top: 0; height: 100%; width: 100%;" allow="accelerometer; gyroscope; autoplay; encrypted-media; picture-in-picture;" allowfullscreen="true"></iframe>
+                </div>
+              </div>
+            </li>
+            <li>
+              Topic 17: Investment In Real Estate
+              <div class="dropdown-content">
+                <div style="position: relative; padding-top: 56.25%;">
+                  <iframe src="https://iframe.mediadelivery.net/embed/125671/b14162b1-e21b-499a-a9aa-f14c843f2595?autoplay=false" loading="lazy" style="border: none; position: absolute; top: 0; height: 100%; width: 100%;" allow="accelerometer; gyroscope; autoplay; encrypted-media; picture-in-picture;" allowfullscreen="true"></iframe>
+                </div>
+              </div>
+            </li>
+            <li>
+              Topic 18: Mutual Fund
+              <div class="dropdown-content">
+                <div style="position: relative; padding-top: 56.25%;">
+                  <iframe src="https://iframe.mediadelivery.net/embed/125671/13f1cdd7-f9c8-4a26-8eda-46f4a73a9c4e?autoplay=false" loading="lazy" style="border: none; position: absolute; top: 0; height: 100%; width: 100%;" allow="accelerometer; gyroscope; autoplay; encrypted-media; picture-in-picture;" allowfullscreen="true"></iframe>
+                </div>
+              </div>
+            </li>
+            <li>
+              Topic 19: Retirement Planning
+              <div class="dropdown-content">
+                <div style="position: relative; padding-top: 56.25%;">
+                  <iframe src="https://iframe.mediadelivery.net/embed/125671/be317aa3-ec0f-49ec-a076-233eca8e38f2?autoplay=false" loading="lazy" style="border: none; position: absolute; top: 0; height: 100%; width: 100%;" allow="accelerometer; gyroscope; autoplay; encrypted-media; picture-in-picture;" allowfullscreen="true"></iframe>
+                </div>
+              </div>
+            </li>
+            <li>
+              Topic 20: Conclusion
+              <div class="dropdown-content">
+                <div style="position: relative; padding-top: 56.25%;">
+                  <iframe src="https://iframe.mediadelivery.net/embed/125671/bb71794f-8e9e-4d50-aaab-cd80b2851e45?autoplay=false" loading="lazy" style="border: none; position: absolute; top: 0; height: 100%; width: 100%;" allow="accelerometer; gyroscope; autoplay; encrypted-media; picture-in-picture;" allowfullscreen="true"></iframe>
+                </div>
+              </div>
+            </li>
+
+          </ul>
+        </section>
+
+      </main>
+    </div>
+  </div>
+
+</body>
+
+</html>

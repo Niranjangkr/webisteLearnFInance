@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<!-- Created By CodingLab - www.codinglabweb.com -->
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="UTF-8">
+    <title> Contact Us </title>
+    <link rel="stylesheet" href="./css/contactstyle.css">
+    <!-- Fontawesome CDN Link -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css"/>
+     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   </head>
+<body>
+  <div class="container">
+    <div class="content">
+      <div class="left-side">
+        <div class="address details">
+          <i class="fas fa-map-marker-alt"></i>
+          <div class="topic">Address</div>
+          <div class="text-one">Goa. India</div>
+        </div>
+        <div class="phone details">
+          <i class="fas fa-phone-alt"></i>
+          <div class="topic">Phone</div>
+          <div class="text-one">RAM CHARI - 7972433715</div>
+          <div class="text-two"> CLASTER FLOYD CARDOSO - 9764087425</div>
+        </div>
+        <div class="email details">
+          <i class="fas fa-envelope"></i>
+          <div class="topic">Email</div>
+          <div class="text-one">learnfinance.goa@gmail.com</div>
+        </div>
+      </div>
+      <div class="right-side">
+        <div class="topic-text">Do help us with the Feedback!</div>
+<!-- <p>any website related query can be send us mail on the following email</p>       -->
+        <form action="#">
+         
+        <!-- <div class="input-box">
+            <input class="userEmail" type="text" placeholder="enter your Email">
+          </div>
+        <div class="input-box message-box">
+          
+        </div> -->
+        <div class="button">
+          <input type="button" id="button" value="Send Mail">
+        </div>
+      </form>
+    </div>
+    </div>
+  </div>
+  <script>
+    // JavaScript code to handle the contact button click
+    document.getElementById('button').addEventListener('click', function() {
+      var recipientEmail = 'learnfinance.goa@gmail.com'; // Replace with the recipient's email address
+
+      var subject = 'Inquiry';
+      var body = 'Hello,\n\nI have a question regarding...'; // Replace with the default email body
+
+      var mailtoUrl = 'mailto:' + recipientEmail + '?subject=' + encodeURIComponent(subject) + '&body=' + encodeURIComponent(body);
+      window.location.href = mailtoUrl;
+    });
+  </script>
+</body>
+</html>
+
+
+<!-- <!DOCTYPE html>
+<html>
+<head>
+  <title>Contact Page</title>
+</head>
+<body>
+  <h1>Contact Us</h1>
+  <p>Click the button below to open your email app and send us a message.</p>
+  <button id="contactButton">Contact via Email</button>
+
+  <script>
+    // JavaScript code to handle the contact button click
+    document.getElementById('contactButton').addEventListener('click', function() {
+      var recipientEmail = 'recipient@example.com'; // Replace with the recipient's email address
+
+      var subject = 'Inquiry';
+      var body = 'Hello,\n\nI have a question regarding...'; // Replace with the default email body
+
+      var mailtoUrl = 'mailto:' + recipientEmail + '?subject=' + encodeURIComponent(subject) + '&body=' + encodeURIComponent(body);
+      window.location.href = mailtoUrl;
+    });
+  </script>
+</body>
+</html> -->

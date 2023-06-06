@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html>
+<style>
+body 
+{
+  font-family: Arial, Helvetica, sans-serif;
+  background: #abc7c8;
+}
+* {box-sizing: border-box}
+
+
+  /* google form */
+  .gform{
+  display: inline-block;
+  padding: 10px 20px;
+  background-color: #4CAF50;
+  color: white;
+  text-decoration: none;
+  border-radius: 4px ;
+  border: 2px solid black;
+  }
+
+  .gform {
+  background-color: #45a049;
+}
+
+/* Full-width input fields */
+input[type=text], input[type=password] {
+  width: 100%;
+  padding: 15px;
+  margin: 5px 0 22px 0;
+  display: inline-block;
+  border: none;
+  background: #f1f1f1;
+}
+
+input[type=text]:focus, input[type=password]:focus {
+  background-color: #ddd;
+  outline: none;
+}
+
+hr {
+  border: 1px solid #f1f1f1;
+  margin-bottom: 25px;
+}
+
+/* Set a style for all buttons */
+button {
+  background-color: #04AA6D;
+  color: white;
+  padding: 14px 20px;
+  margin: 8px 0;
+  border: none;
+  cursor: pointer;
+  width: 100%;
+  opacity: 0.9;
+}
+
+button:hover {
+  opacity:1;
+}
+
+/* Extra styles for the cancel button */
+.cancelbtn {
+  padding: 14px 20px;
+  background-color: #f44336;
+}
+
+/* Float cancel and signup buttons and add an equal width */
+.cancelbtn, .signupbtn {
+  float: left;
+  width: 50%;
+}
+
+/* Add padding to container elements */
+.container {
+  padding: 16px;
+}
+
+/* Clear floats */
+.clearfix::after {
+  content: "";
+  clear: both;
+  display: table;
+}
+
+.container{
+  margin: auto;
+  width: 60%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: #209b8f;
+  border-radius: 8px;
+  box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+.container > p{
+  font-size: 24px;
+}
+
+.container > h1 {
+  font-size: 44px;
+}
+
+/* Change styles for cancel button and signup button on extra small screens */
+@media only screen and (max-width: 600px) {
+      body {
+        width: 100vw;
+        height: 100vh;
+      }
+      .container{
+        display: block;
+        margin: auto;
+      }
+}
+
+</style>
+<body>
+
+<form action="/action_page.php" style="border:1px solid #ccc">
+  <div class="container">
+    <h1>Sign Up</h1>
+    <p>To create an account, please fill in the Google form provided. Once the registration process is complete, you will receive your login credentials. For payment-related communication, we will contact you via email.</p>
+    <hr>
+
+
+    <a class="gform" href="https://docs.google.com/forms/d/e/1FAIpQLSebKO2HDOqyREhaUxQ24oHrdKkDve5_Mx2MgUITmdNIZGF_Qg/viewform?usp=sf_link">Google Form</a>
+    <!-- <label for="email"><b>Name</b></label>
+    <input type="text" placeholder="Enter Email" name="email" required>
+
+    <label for="psw"><b>Email</b></label>
+    <input type="password" placeholder="Enter Password" name="psw" required>
+
+    <label for="psw"><b>Mobile number</b></label>
+    <input type="password" placeholder="Enter Password" name="psw" required>
+    <label>
+        <label for="psw"><b>State</b></label>
+        <input type="password" placeholder="Enter Password" name="psw" required>
+
+        <h1>how much do you know about stock market</h1> -->
+
+    
+          <!-- <input type="checkbox" id="sm" name="sm" value="beginner">
+          <label for="sm"> i'm a beginner</label><br>
+          <input type="checkbox" id="sm2" name="sm2" value="intermediate">
+          <label for="sm2"> i'm an intermediate</label><br>
+          <input type="checkbox" id="sm3" name="sm3" value="expert">
+          <label for="vehicle3"> i'm an expert</label><br><br> -->
+         
+       
+    <!-- <div class="clearfix">
+      <button type="button" class="cancelbtn">Cancel</button>
+      <button type="submit" class="signupbtn">Sign Up</button>
+    </div> -->
+  </div>
+</form>
+
+</body>
+</html>

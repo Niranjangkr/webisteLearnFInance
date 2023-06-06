@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title> About</title>
+  <link rel="stylesheet" href="./css/style.css">
+  <script src="https://kit.fontawesome.com/a076d05399.js"></script>
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <style>
+    body {
+      margin: 0;
+      box-sizing: border-box;
+    }
+
+    .container {
+      height: 120vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
+      background-image: url("./photos/learn.jpg");
+      background-size: cover;
+      background-position: center;
+      background-repeat: no-repeat;
+    }
+
+    h1 {
+      font-size: 6rem;
+      color: #1a2edd;
+      align-items: top;
+      text-transform: uppercase;
+      font-weight: 600;
+      margin-bottom: 1rem;
+    }
+
+
+    h2 {
+      font-size: 1.5rem;
+      color: #0c0c0c;
+      font-weight: 700;
+      margin-bottom: 1rem;
+    }
+
+
+    h3 {
+      font-size: 1.5rem;
+      color: #121212;
+      font-weight: 700;
+      margin-bottom: 1rem;
+    }
+
+    p {
+      font-size: 1.5rem;
+      color: #0c0c0c;
+      font-weight: 700;
+      margin-bottom: 1rem;
+
+    }
+
+    nav {
+      box-shadow: 0 2px 4px 0 rgba(0, 0, 0, .2);
+    }
+
+    li {
+      list-style: none;
+    }
+
+    .container>ul {
+      background-color: rgba(255, 255, 255, 0.8);
+      /* Translucent white background */
+      padding: 20px;
+    }
+
+    @media only screen and (max-width: 600px) {
+      body {
+        width: 100vw;
+        height: 100vh;
+
+        .center {
+          position: relative;
+          top: 1234px;
+        }
+
+        #lgoSc {
+          width: 240px;
+          padding: 4px;
+          margin-left: 24px;
+        }
+
+        #hamburger-menu {
+          width: 38px;
+          height: 30px;
+          display: block;
+          border: none;
+          padding: 0px;
+          margin: 20px;
+
+          position: absolute;
+          top: 10px;
+          right: 10px;
+          background: linear-gradient(to bottom,
+              #ffffff, #ffffff 20%,
+              #2d0363, #2d0363 40%,
+              #ffffff 40%, #ffffff 60%,
+              #2d0363 60%, #2d0363 80%,
+              #ffffff 80%, #ffffff 100%);
+
+        }
+
+        #hamburger-menu-replace {
+          display: none;
+        }
+
+        #hamburger-menu-replace {
+          display: flex;
+          flex-direction: column;
+          display: none;
+          position: absolute;
+          top: 50px;
+          right: 30px;
+        }
+
+        #hamburger-menu-replace>li {
+          border: 1px solid black;
+        }
+
+        #hamburger-menu-replace>li {
+          background-color: rgb(83, 22, 250);
+          padding: 5px;
+        }
+
+        #hamburger-menu-replace>li:hover {
+          background: #fff;
+          color: black;
+        }
+
+        /* adjusting contents */
+        .container>ul {
+          /* position: relative;
+          top: 60%; */
+          padding-top: 1118px;
+          margin: 20px;
+          /* padding-top: 1%; */
+        }
+
+        .container h1 {
+          font-size: 2.5rem;
+        }
+
+        .container {
+          background: url("../photos/learn.jpg") no-repeat;
+          width: 100%;
+          height: 100vh;
+          background-size: cover;
+          background-position: center;
+          position: relative;
+          overflow: auto;
+        }
+
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <nav class="nav_bar">
+    <div class="menu">
+      <div class="logo">
+        <a href="#"><img src="./photos/3.png" id="lgoSc" alt="Logo"></a>
+      </div>
+      <ul id="hamburger-menu-replace">
+        <li><a href="/">Home</a></li>
+
+        <li id="video-list"><a href="/videos">Videos</a></li>
+
+        <li><a href="/syllabus">Syllabus</a></li>
+        <li><a href="/gallery">Gallery</a></li>
+        <li><a href="/about">About</a></li>
+        <li><a href="/contact">Contact</a></li>
+      </ul>
+    </div>
+    <div id="hamburger-menu" onclick="displayMenue()"></div>
+
+  </nav>
+  <div class="container">
+    <ul>
+      <li>
+        <h1>About the Course</h1>
+        <p>We train you towards financial freedom by educating you in such a <br>
+          way that you fulfill the objective of wealth creation and a bright<br>
+          financial future through our course- Learn Finance. <br><br><br>
+          Everything in the course is explained in such a manner keeping in <br>
+          mind that the client don't have any prior knowledge of <br>investing-beginner friendly.<br>
+        </p>
+      </li>
+      <li>
+        <h2>
+          OUR VISION:
+        </h2>
+        <p>
+          To educate and empower Indian citizens towards Indian stock market and other<br>
+          investment avenue so that every individual can independently divert their<br>
+          savings into profitable channels.
+        </p>
+      </li>
+      <li>
+        <h3>
+          OUR MISSION
+        </h3>
+        <p>
+          To produce a profitable investor through Holistic and Quality Education
+        </p>
+      </li>
+    </ul>
+  </div>
+
+  <script>
+    displayMenue = () => {
+      const HamburgerMenue = document.getElementById("hamburger-menu-replace")
+      HamburgerMenue.style.display = HamburgerMenue.style.display === "none" ? "block" : "none"
+    }
+
+    // Click on the screen and menu display goes to none
+    document.addEventListener("click", (event) => {
+      const targetElement = event.target;
+      const hamburgerMenu = document.getElementById("hamburger-menu");
+      const hamburgerMenu_rep = document.getElementById("hamburger-menu-replace");
+
+      if (hamburgerMenu_rep.style.display === "block") {
+        // Check if the clicked element is the menu or its descendant
+        if (targetElement !== hamburgerMenu && targetElement !== hamburgerMenu_rep) {
+          hamburgerMenu_rep.style.display = "none";
+        }
+      }
+
+    });
+
+
+  </script>
+
+</body>
+
+</html>

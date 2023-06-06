@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title> learn finance</title>
+  <link rel="stylesheet" href="./css/syllabusstyle.css">
+  <script src="https://kit.fontawesome.com/a076d05399.js"></script>
+
+  <style>
+    @media only screen and (max-width: 600px) {
+      body {
+        width: 100vw;
+        height: 100vh;
+        /* background-position: center center;
+        background-attachment: fixed;
+        background-repeat: no-repeat;
+        background-size: cover;
+        background-image: linear-gradient(to right, rgba(0, 0, 0, 0.8) 0%, rgba(0, 0, 0, 0.7) 10%, rgba(0, 0, 0, 0.6) 19%, rgba(0, 0, 0, 0.42) 31%, rgba(0, 0, 0, 0.35) 38%, rgba(0, 0, 0, 0.25) 54%, rgba(0, 0, 0, 0.1) 70%, rgba(0, 0, 0, 0) 100%),
+          url("../photos/learn.jpg"); */
+
+        /* .img {
+          background-position: center center;
+          background-attachment: fixed;
+          background-size: cover;
+          background-repeat: no-repeat;
+          background-image: linear-gradient(to right, rgba(0, 0, 0, 0.8) 0%, rgba(0, 0, 0, 0.7) 10%, rgba(0, 0, 0, 0.6) 19%, rgba(0, 0, 0, 0.42) 31%, rgba(0, 0, 0, 0.35) 38%, rgba(0, 0, 0, 0.25) 54%, rgba(0, 0, 0, 0.1) 70%, rgba(0, 0, 0, 0) 100%),
+            url("../photos/learn.jpg");
+
+        } */
+
+        /* .center .title {
+          color: #ffffff;
+          font-size: 35px;
+          font-weight: 600;
+        } */
+
+        /* .center .sub_title {
+          color: hsl(0, 0%, 100%);
+          font-size: 35px;
+          font-weight: 600;
+        } */
+
+        /* .btns {
+            display: flex;
+            flex-direction: column;
+          }
+
+          .btns>a {
+            padding: 13px;
+          } */
+
+        .center {
+          position: relative;
+          top: 1234px;
+        }
+
+        #lgoSc {
+          width: 240px;
+          padding: 4px;
+          margin-left: 24px;
+        }
+
+        #hamburger-menu {
+          width: 38px;
+          height: 30px;
+          display: block;
+          border: none;
+          padding: 0px;
+          margin: 20px;
+
+          position: absolute;
+          top: 10px;
+          right: 10px;
+          background: linear-gradient(to bottom,
+              #ffffff, #ffffff 20%,
+              #2d0363, #2d0363 40%,
+              #ffffff 40%, #ffffff 60%,
+              #2d0363 60%, #2d0363 80%,
+              #ffffff 80%, #ffffff 100%);
+
+        }
+
+        #hamburger-menu-replace {
+          display: none;
+        }
+
+        #hamburger-menu-replace {
+          display: flex;
+          flex-direction: column;
+          display: none;
+          position: absolute;
+          top: 50px;
+          right: 30px;
+        }
+
+        #hamburger-menu-replace>li {
+          border: 1px solid black;
+        }
+
+        #hamburger-menu-replace>li {
+          background-color: rgb(83, 22, 250);
+          padding: 5px;
+        }
+
+        #hamburger-menu-replace>li:hover {
+          background: #fff;
+          color: black;
+        }
+
+
+        /* making font adjustments */
+
+        .center>.title {
+          font-size: 45px;
+        }
+
+        .center .heading {
+          font-size: 30px;
+        }
+
+        .container {
+          flex-direction: column;
+        }
+      }
+    }
+
+    .heading {
+      text-decoration: underline;
+    }
+  </style>
+
+</head>
+
+<body>
+  <nav>
+    <div class="menu">
+      <div class="logo">
+        <a href="#"><img id="lgoSc" src="./photos/3.png" alt="Logo"></a>
+      </div>
+      <ul id="hamburger-menu-replace">
+        <li><a href="/">Home</a></li>
+
+        <li id="video-list"><a href="/videos">Videos</a></li>
+
+        <li><a href="/syllabus">Syllabus</a></li>
+        <li><a href="/gallery">Gallery</a></li>
+        <li><a href="/about">About</a></li>
+        <li><a href="/contact">Contact</a></li>
+
+      </ul>
+    </div>
+    <div id="hamburger-menu" onclick="displayMenue()"></div>
+
+  </nav>
+  <div class="img">
+
+    <div class="center">
+      <div class="title">WHAT WILL YOU LEARN</div>
+      <ul class="course">
+        <li>
+          <div class="topic">
+            <div class="heading">BASICS TO ADVANCE OF INDIAN STOCK MARKET</div>
+            <div class="para">
+              <p>Important terms, chart analysis, market cap, profit and loss analysis, balance sheet analysis, cash
+                flow analysis, ratios, stock selection methods, portfolio building, portfolio rebalancing, sector
+                analysis, sector diversification.</p>
+            </div>
+          </div>
+        </li>
+
+        <li>
+          <div class="topic">
+            <div class="heading">POSITIONAL TRADING IN INDIAN STOCK MARKET</div>
+            <div class="para">
+              <p>Chart reading, identification of support and resistance, short-term stock selection, risk management,
+                mind management, execution and strategy, profit booking techniques.</p>
+            </div>
+          </div>
+        </li>
+
+        <li>
+          <div class="topic">
+            <div class="heading">SIP IN INDIAN STOCK MARKET</div>
+            <div class="para">
+              <p>Meaning, SIP mindset, SIP stock selection, SIP strategy.</p>
+            </div>
+          </div>
+        </li>
+
+        <li>
+          <div class="topic">
+            <div class="heading">MUTUAL FUNDS</div>
+            <div class="para">
+              <p>Selection criteria for mutual funds, fund diversification.</p>
+            </div>
+          </div>
+        </li>
+
+        <li>
+          <div class="topic">
+            <div class="heading">REAL ESTATE</div>
+            <div class="para">
+              <p>Selection criteria for real estate, decision making in real estate, important factors to be considered
+                while making the purchase decision.</p>
+            </div>
+          </div>
+        </li>
+
+        <li>
+          <div class="topic">
+            <div class="heading">RETIREMENT PLANNING</div>
+            <div class="para">
+              <p>Identification of objectives after retirement, funds allocation and diversification, strategies and
+                investment plans available after retirement, insurance plans.</p>
+            </div>
+          </div>
+        </li>
+      </ul>
+
+      <div class="container">
+        <div class="box">
+          <div class="heading">MATERIAL INCLUDES:</div>
+          <div class="para">
+            <p>Pre-recorded videos</p>
+            <p>75 days access</p>
+            <p>Digital certificate of completion</p>
+            <p>Doubt clearing live sessions</p>
+          </div>
+        </div>
+
+        <div class="box">
+          <div class="heading">REQUIREMENTS:</div>
+          <div class="para">
+            <p>No prior knowledge of the stock market is required.</p>
+            <p>Interest and curiosity to learn about the stock market and other investment avenues</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script>
+      displayMenue = () => {
+        const HamburgerMenue = document.getElementById("hamburger-menu-replace")
+        HamburgerMenue.style.display = HamburgerMenue.style.display === "none" ? "block" : "none"
+      }
+  
+      // Click on the screen and menu display goes to none
+      document.addEventListener("click", (event) => {
+        const targetElement = event.target;
+        const hamburgerMenu = document.getElementById("hamburger-menu");
+        const hamburgerMenu_rep = document.getElementById("hamburger-menu-replace");
+  
+        if (hamburgerMenu_rep.style.display === "block") {
+          // Check if the clicked element is the menu or its descendant
+          if (targetElement !== hamburgerMenu && targetElement !== hamburgerMenu_rep) {
+            hamburgerMenu_rep.style.display = "none";
+          }
+        }
+  
+      });
+  
+  
+    </script>
+
+</body>
+
+</html>

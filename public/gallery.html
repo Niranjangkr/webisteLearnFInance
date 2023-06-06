@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=devic e-width, initial-scale=1.0">
+  <title> learn finance</title>
+  <link rel="stylesheet" href="./css/gallerystyle.css">
+  <script src="https://kit.fontawesome.com/a076d05399.js"></script>
+
+  <style>
+    @media only screen and (max-width: 600px) {
+      body {
+        width: 100vw;
+        height: 100vh;
+
+        #lgoSc {
+          width: 240px;
+          padding: 4px;
+          margin-left: -17px;
+        }
+
+        #hamburger-menu {
+          width: 38px;
+          height: 30px;
+          display: block;
+          border: none;
+          padding: 0px;
+          margin: 20px;
+
+          position: absolute;
+          top: 10px;
+          right: 10px;
+          background: linear-gradient(to bottom,
+              #ffffff, #ffffff 20%,
+              #2d0363, #2d0363 40%,
+              #ffffff 40%, #ffffff 60%,
+              #2d0363 60%, #2d0363 80%,
+              #ffffff 80%, #ffffff 100%);
+
+        }
+
+        #hamburger-menu-replace {
+          display: none;
+        }
+
+        #hamburger-menu-replace {
+          display: flex;
+          flex-direction: column;
+          display: none;
+          position: absolute;
+          top: 50px;
+          right: 30px;
+        }
+
+        #hamburger-menu-replace>li {
+          border: 1px solid black;
+        }
+
+        #hamburger-menu-replace>li {
+          background-color: rgb(83, 22, 250);
+          padding: 5px;
+        }
+
+        #hamburger-menu-replace>li:hover {
+          background: #fff;
+          color: black;
+        }
+
+        /* adjusting text */
+        .center {
+          /* width: 100vw;
+          position: absolute;
+          top: 88%;
+          left: 50%;
+          transform: translate(-50%, -50%);
+          width: 100%;
+          padding: 0 20px;
+          margin-top: 50dp;
+          text-align: center; */
+          top: 880px;
+          display: flex;
+          flex-direction: column;
+        }
+
+        /* clestor info */
+        .center .title {
+          /* color: #000000;
+          padding-bottom: 20px;
+          margin-top: 0px;
+          font-size: 30px;
+          font-weight: 600;
+          position: relative;
+          top: 72px;
+
+
+
+          left: 370px;
+          width: 800px;
+          background-color: rgba(255, 255, 255, 0.8);
+          Translucent white background */
+          width: 80%;
+          font-size: 1rem;
+          display: absolute;
+          top: 1%;
+          margin-top: 44%;
+          left: 0px;
+          align-self: center;
+        }
+
+        /* adjusting photos */
+        .person {
+          position: relative;
+          width: 70%;
+          border-radius: 1px;
+          border: 3px solid rgb(0, 0, 0);
+          top: 10px;
+          align-self: center;
+        }
+
+        #sub1 {
+          color: #000000;
+          font-size: 0.9rem;
+          font-weight: 600;
+          position: relative;
+          top: 10%;
+          width: 90%;
+          margin: auto;
+          margin-top: 8%;
+          background-color: rgba(255, 255, 255, 0.8);
+          /* Translucent white background */
+        }
+
+        /* Ram Chari info */
+        .center .t2 {
+          /* color: #000000;
+          padding-bottom: 20px;
+          margin-top: 0px;
+          font-size: 30px;
+          font-weight: 600;
+          position: relative;
+          top: 72px;
+
+
+
+          left: 370px;
+          width: 800px;
+          background-color: rgba(255, 255, 255, 0.8);
+          Translucent white background */
+          width: 80%;
+          font-size: 1rem;
+          display: absolute;
+          top: 1%;
+          margin-top: 44%;
+          left: 0px;
+          align-self: center;
+        }
+
+        /* adjusting photos */
+        .person2 {
+          position: relative;
+          width: 70%;
+          border-radius: 1px;
+          border: 3px solid rgb(0, 0, 0);
+          top: 10px;
+          align-self: center;
+        }
+
+        .center span {
+          position: relative;
+          right: 0px;
+        }
+
+        #sub2 {
+          color: #000000;
+          font-size: 0.9rem;
+          font-weight: 600;
+          position: relative;
+          top: 10%;
+          width: 90%;
+          margin: auto;
+          margin-top: 8%;
+          margin-bottom: 22px;
+          background-color: rgba(255, 255, 255, 0.8);
+          /* Translucent white background */
+        }
+      }
+    }
+  </style>
+
+
+</head>
+
+<body>
+  <nav>
+    <div class="menu">
+      <div class="logo">
+        <a href="#"><img id="lgoSc" src="./photos/3.png" alt="Logo"></a>
+      </div>
+      <ul id="hamburger-menu-replace">
+        <li><a href="/" onclick="document.location='index.html'">Home</a></li>
+
+        <li id="video-list"><a href="/videos" onclick="document.location='videos.html'">Videos</a></li>
+
+        <li><a href="/syllabus" onclick="document.location='syllabus.html'">Syllabus</a></li>
+        <li><a href="/gallery" onclick="document.location='gallery.html'">Gallery</a></li>
+        <li><a href="/about" onclick="document.location='About.html'">About</a></li>
+        <li><a href="/contact" onclick="document.location='contact.html'">Contact</a></li>
+
+      </ul>
+
+      <div id="hamburger-menu" onclick="displayMenue()"></div>
+      <br>
+      <br>
+    </div>
+
+  </nav>
+  <div class="img">
+    <div class="center">
+      <div class="title">
+        CLASTER FLOYD CARDOSO -
+        <br>BCOM., MCOM., TRADER/ INVESTOR AND MENTOR IN STOCK MARKET
+      </div>
+      <img class="person" align="left" src="./photos/clester.jpg" alt="CLASTER FLOYD CARDOZO">
+      <div class="sub_title" id="sub1">Started investment journey at the age of 20 with an intention of side hustle and
+        at present
+        is a full time investor and trainer at stock market. in different colleges and companies across the country.
+        Trained under well known experts and with vast experience in stock markets, Claster is expert in portfolio
+        building, fundamental analysis, stock selection
+        and other investment avenues. Winning several awards Claster has taken it as a mission to educate people of his
+        country about stock markets and other investment avenues.
+      </div>
+
+      <div class="t2">
+        <span>RAM CHARI -</span>
+        <br>LEGAL CONSULTANT/ INVESTOR/ INVESTMENT ADVISOR
+      </div>
+      <img class="person2" align="left" src="./photos/ram.jpg" alt="RAM CHARI">
+      <div class="sub_title" id="sub2">Ram started investment journey at a very young age and now is a successful
+        investor in
+        Indian market. Besides stock market he has got a vast experience
+        in investment, insurances and legal consultancy services. Ram is also expert in handling of conveyance of
+        properties ( sale deeds, gift deeds, partitions,
+        mutations, wills etc. ) , GST and all types of buisness and license registrations with a vast client
+        base including businessmen, students, investors
+        and government employees. </div>
+
+    </div>
+
+    <script>
+      displayMenue = () => {
+        const HamburgerMenue = document.getElementById("hamburger-menu-replace")
+        HamburgerMenue.style.display = HamburgerMenue.style.display === "none" ? "block" : "none"
+      }
+
+      // Click on the screen and menu display goes to none
+      document.addEventListener("click", (event) => {
+        const targetElement = event.target;
+        const hamburgerMenu = document.getElementById("hamburger-menu");
+        const hamburgerMenu_rep = document.getElementById("hamburger-menu-replace");
+
+        if (hamburgerMenu_rep.style.display === "block") {
+          // Check if the clicked element is the menu or its descendant
+          if (targetElement !== hamburgerMenu && targetElement !== hamburgerMenu_rep) {
+            hamburgerMenu_rep.style.display = "none";
+          }
+        }
+
+      });
+
+
+    </script>
+</body>
+
+</html>

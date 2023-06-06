@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title> learn finance</title>
+  <link rel="stylesheet" href="./css/style.css">
+  <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+
+  <style>
+    body {
+      overflow: auto;
+      overflow-x: hidden;
+    }
+
+    body::-webkit-scrollbar {
+      width: 0px;
+    }
+
+    @media only screen and (max-width: 600px) {
+      body {
+        width: 100vw;
+        height: 100vh;
+        /* background-position: center center;
+        background-attachment: fixed;
+        background-repeat: no-repeat;
+        background-size: cover;
+        background-image: linear-gradient(to right, rgba(0, 0, 0, 0.8) 0%, rgba(0, 0, 0, 0.7) 10%, rgba(0, 0, 0, 0.6) 19%, rgba(0, 0, 0, 0.42) 31%, rgba(0, 0, 0, 0.35) 38%, rgba(0, 0, 0, 0.25) 54%, rgba(0, 0, 0, 0.1) 70%, rgba(0, 0, 0, 0) 100%),
+          url("../photos/learn.jpg"); */
+
+        .img {
+          background-position: center center;
+          background-attachment: fixed;
+          background-size: cover;
+          background-repeat: no-repeat;
+          background-image: linear-gradient(to right, rgba(0, 0, 0, 0.8) 0%, rgba(0, 0, 0, 0.7) 10%, rgba(0, 0, 0, 0.6) 19%, rgba(0, 0, 0, 0.42) 31%, rgba(0, 0, 0, 0.35) 38%, rgba(0, 0, 0, 0.25) 54%, rgba(0, 0, 0, 0.1) 70%, rgba(0, 0, 0, 0) 100%),
+            url("../photos/learn.jpg");
+
+        }
+
+        .center .title {
+          color: #ffffff;
+          font-size: 35px;
+          font-weight: 600;
+        }
+
+        .center .sub_title {
+          color: hsl(0, 0%, 100%);
+          font-size: 35px;
+          font-weight: 600;
+        }
+
+        .btns {
+          display: flex;
+          flex-direction: column;
+        }
+
+        .btns>a {
+          padding: 13px;
+        }
+
+        .center {
+          width: 100%;
+          padding: 0 20px;
+          text-align: center;
+        }
+
+        #lgoSc {
+          width: 240px;
+          padding: 4px;
+          margin-left: 24px;
+        }
+
+        #hamburger-menu {
+          width: 38px;
+          height: 30px;
+          display: block;
+          border: none;
+          padding: 0px;
+          margin: 20px;
+
+          position: absolute;
+          top: 10px;
+          right: 33px;
+          background: linear-gradient(to bottom,
+              #ffffff, #ffffff 20%,
+              #2d0363, #2d0363 40%,
+              #ffffff 40%, #ffffff 60%,
+              #2d0363 60%, #2d0363 80%,
+              #ffffff 80%, #ffffff 100%);
+
+        }
+
+        #hamburger-menu-replace {
+          display: none;
+        }
+
+        #hamburger-menu-replace {
+          display: flex;
+          flex-direction: column;
+          display: none;
+          position: absolute;
+          top: 50px;
+          right: 30px;
+        }
+
+        #hamburger-menu-replace>li {
+          border: 1px solid black;
+        }
+
+        #hamburger-menu-replace>li {
+          background-color: rgb(83, 22, 250);
+          padding: 5px;
+        }
+
+        #hamburger-menu-replace>li:hover {
+          background: #fff;
+          color: black;
+        }
+
+        /* arrow */
+        .arrow-icon {
+          display: block;
+          width: 60px;
+          height: 60px;
+          line-height: 55px;
+          text-align: center;
+          font-size: 24px;
+          background-color: #4CAF50;
+          border-radius: 50%;
+          cursor: pointer;
+        }
+
+        .arrow-button {
+          position: fixed;
+          bottom: 80px;
+          right: 40px;
+          z-index: 999;
+
+        }
+
+        .event-gallery h3 {
+          position: relative;
+          color: white;
+          top: -30px;
+          left: 100px;
+          font-weight: bolder;
+          font-size: 3rem;
+        }
+        
+      }
+    }
+  </style>
+  <script src="https://kit.fontawesome.com/a076d05399.js"></script>
+</head>
+
+<body>
+  <nav>
+    <div class="menu">
+      <div class="logo">
+        <a href="#"><img id="lgoSc" src="./photos/3.png" alt="Logo"></a>
+      </div>
+      <ul id="hamburger-menu-replace">
+        <li><a href="/">Home</a></li>
+        <li><a href="/videos">Videos</a></li>
+        <li><a href="/syllabus">Syllabus</a></li>
+        <li><a href="/gallery">Gallery</a></li>
+        <li><a href="/about">About</a></li>
+        <li><a href="/contact">Contact</a></li>
+      </ul>
+    </div>
+    <div id="hamburger-menu" onclick="displayMenue()"></div>
+  </nav>
+  <div class="img"></div>
+  <div class="center">
+    <div class="title">LEARN FINANCE</div>
+    <div class="sub_title">Online Education Platform</div>
+    <div class="btns">
+
+      <a href="/login"><button id="LogB">Login</button></a>
+      <a href="/signup"><button id="SignB">Sign Up</button></a>
+    </div>
+  </div>
+  <!-- achievements and awards ... scroll down -->
+  <div class="arrow-button arrow-up">
+    <a href="#scroll-target">
+      <span class="arrow-icon">&#9660;</span>
+    </a>
+  </div>
+
+  <div id="scroll-target" class="img">
+    <!-- Content to scroll to -->
+    <div class="event-gallery">
+      <h3>Event Gallery</h3>
+      <div id="imageSlider">
+
+      </div>
+    </div>
+
+
+
+  </div>
+
+  <script>
+    displayMenue = () => {
+      const HamburgerMenue = document.getElementById("hamburger-menu-replace")
+      HamburgerMenue.style.display = HamburgerMenue.style.display === "none" ? "block" : "none"
+    }
+
+    // Click on the screen and menu display goes to none
+    document.addEventListener("click", (event) => {
+      const targetElement = event.target;
+      const hamburgerMenu = document.getElementById("hamburger-menu");
+      const hamburgerMenu_rep = document.getElementById("hamburger-menu-replace");
+
+      if (hamburgerMenu_rep.style.display === "block") {
+        // Check if the clicked element is the menu or its descendant
+        if (targetElement !== hamburgerMenu && targetElement !== hamburgerMenu_rep) {
+          hamburgerMenu_rep.style.display = "none";
+        }
+      }
+
+    });
+
+
+
+    //photos adding 
+    document.addEventListener('DOMContentLoaded', function () {
+      const arrowButton = document.querySelector('.arrow-button');
+      const scrollTarget = document.querySelector('#scroll-target');
+
+      function handleScroll() {
+        if (scrollTarget.getBoundingClientRect().top > 0) {
+          arrowButton.classList.remove('arrow-up');
+        } else {
+          arrowButton.classList.add('arrow-up');
+        }
+      }
+
+      arrowButton.addEventListener('click', function (e) {
+        e.preventDefault();
+
+        if (scrollTarget.getBoundingClientRect().top > 0) {
+          scrollTarget.scrollIntoView({ behavior: 'smooth' });
+          arrowButton.classList.add('arrow-up');
+        } else {
+          window.scrollTo({ top: 0, behavior: 'smooth' });
+          arrowButton.classList.remove('arrow-up');
+        }
+      });
+
+      window.addEventListener('scroll', handleScroll);
+
+      // Check scroll position on page load
+      handleScroll();
+    });
+
+
+    // slider
+
+  </script>
+</body>
+
+</html>

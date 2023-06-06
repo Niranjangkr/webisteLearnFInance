@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<title>CodePen - Sign up / Login Form</title>
+	<link rel="stylesheet" type="text/css" href="slide navbar style.css">
+	<link href="https://fonts.googleapis.com/css2?family=Jost:wght@500&display=swap" rel="stylesheet">
+	<link rel="stylesheet" href="./css/loginstyle.css">
+
+	<script src="https://www.gstatic.com/firebasejs/7.14.1/firebase-app.js" defer></script>
+	<script src="https://www.gstatic.com/firebasejs/7.14.1/firebase-auth.js" defer></script>
+	<script src="https://cdn.jsdelivr.net/npm/js-cookie@rc/dist/js.cookie.min.js" defer></script>
+
+	<script src="https://cdn.jsdelivr.net/npm/bs-custom-file-input/dist/bs-custom-file-input.js"></script>
+
+
+</head>
+
+<body>
+	<div class="main">
+		<div class="login" id="login">
+			<form action="/login" method="POST">
+
+				<!-- loading -->
+				<div id="loading" style="display: none; color: rgb(255, 255, 255);">
+					<!-- Add your spinner or loading animation here -->
+					<h2>Loading...</h2>
+				</div>
+				<div id="error" style="display: none; color: red;">
+					Invalid credentials. Please try again.
+				</div>
+
+				<label for="chk" aria-hidden="true">Login</label>
+				<input type="email" name="email" placeholder="Email" required="">
+				<input type="password" name="password" placeholder=" Password" required="">
+				<button>Login</button>
+			</form>
+		</div>
+	</div>
+
+	<script>
+		console.log("helo")
+		window.addEventListener("DOMContentLoaded", () => {
+			const firebaseConfig = {
+				apiKey: "AIzaSyCB-KFITcL6YDaFKUe8xdn3-0LHalU6YHc",
+				authDomain: "learnfinance-9aec7.firebaseapp.com",
+				projectId: "learnfinance-9aec7",
+				storageBucket: "learnfinance-9aec7.appspot.com",
+				messagingSenderId: "741364792829",
+				appId: "1:741364792829:web:92f335d64958aec5f22d94",
+				measurementId: "G-31D96T4V77"
+			};
+
+
+			// Initialize Firebase
+			firebase.initializeApp(firebaseConfig);
+
+			firebase.auth().setPersistence(firebase.auth.Auth.Persistence.NONE);
+			document
+				.getElementById("login")
+				.addEventListener("submit", (event) => {
+					event.preventDefault();
+					const email = event.target.email.value
+					const password = event.target.password.value
+
+					//loading...
+					const loadingElement = document.getElementById("loading");
+					const errorElement = document.getElementById("error");
+					loadingElement.style.display = "block"; // Show the loading animation
+					errorElement.style.display = "none"; // Hide the error message
+
+					console.log(password)
+
+					firebase
+						.auth()
+						.signInWithEmailAndPassword(email, password)
+						.then(({ user }) => {
+							return user.getIdToken().then((idToken) => {
+								return fetch("/sessionLogin", {
+									method: "POST",
+									headers: {
+										Accept: "application/json",
+										"Content-Type": "application/json",
+										// "CSRF-Token": Cookies.get("XSRF-TOKEN"),
+									},
+									body: JSON.stringify({ idToken }),
+								});
+							});
+						})
+						.then(() => {
+							return firebase.auth().signOut();
+						})
+						.then(() => {
+							window.location.assign("/videos");
+						}).catch((error) => {
+							// Display the error message and hide the loading animation
+							errorElement.style.display = "block";
+							loadingElement.style.display = "none";
+						});
+				});
+		});
+	</script>
+
+</body>
+
+</html>
